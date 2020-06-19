@@ -25,4 +25,4 @@ cmake .. -GNinja -DOQS_BUILD_ONLY_LIB=ON -DBUILD_SHARED_LIBS=ON -DOQS_USE_OPENSS
 ninja
 echo "installing to ${INSTALL_DIR}"
 mkdir ${INSTALL_DIR}
-cp lib/liboqs.so ${INSTALL_DIR}
+cp lib/liboqs.* ${INSTALL_DIR}
