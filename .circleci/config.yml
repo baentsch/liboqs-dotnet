@@ -41,9 +41,9 @@ localCheckout: &localCheckout
             name: Install dependencies
             command: |
               .circleci/git_no_checkin_in_last_day.sh || (
-              brew unlink python@2 &&
-              brew install cmake ninja wget &&
-              wget https://dot.net/v1/dotnet-install.sh && chmod u+x dotnet-install.sh && ./dotnet-install.sh
+              brew update &&
+              brew install cmake ninja mono-libgdiplus &&
+              curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel LTS
               )
         - run:
             name: Clone liboqs
