@@ -53,10 +53,10 @@ localCheckout: &localCheckout
             command: .circleci/git_no_checkin_in_last_day.sh || .circleci/build_liboqs.sh
         - run:
             name: Build wrapper
-            command: dotnet build dotnetOQS/dotnetOQS.csproj /p:Platform=AnyCPU -f netstandard1.2 -c Release -o bin/Release/dotnetOQS-netstandard1.2
+            command: echo $PATH && export PATH=~/.dotnet:$PATH && echo $PATH && dotnet build dotnetOQS/dotnetOQS.csproj /p:Platform=AnyCPU -f netstandard1.2 -c Release -o bin/Release/dotnetOQS-netstandard1.2
         - run:
             name: Build and run test app
-            command: scripts/macos_sample_netcoreapp2.1_x64_build.sh && ./bin/Release/dotnetOQSSample-netcoreapp2.1-macos-x64/dotnetOQSSample 
+            command: echo $PATH && export PATH=~/.dotnet:$PATH && echo $PATH && scripts/macos_sample_netcoreapp2.1_x64_build.sh && ./bin/Release/dotnetOQSSample-netcoreapp2.1-macos-x64/dotnetOQSSample 
 
 jobs:
   ubuntu_bionic:
