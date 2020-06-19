@@ -30,9 +30,7 @@ localCheckout: &localCheckout
         command: dotnet build dotnetOQS/dotnetOQS.csproj /p:Platform=AnyCPU -f netstandard1.2 -c Release -o bin/Release/dotnetOQS-netstandard1.2
     - run:
         name: Build and run test app
-        command: scripts/linux_sample_netcoreapp2.1_x64_build.sh && ./bin/Release/dotnetOQSSample-netcoreapp2.1-linux-x64/dotnetOQSSample > test-app.log
-    - store_test_results: # Note that this command will fail when running CircleCI locally, that is expected behaviour
-        path: test-app.log
+        command: scripts/linux_sample_netcoreapp2.1_x64_build.sh && ./bin/Release/dotnetOQSSample-netcoreapp2.1-linux-x64/dotnetOQSSample 
 
 jobs:
   ubuntu_bionic:
